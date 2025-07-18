@@ -1,0 +1,54 @@
+{
+  "common": {
+    "home": "首页",
+    "back": "返回",
+    "language": "语言",
+    "settings": "设置"
+  },
+  "home": {
+    "title": "Vibe Coding Games",
+    "subtitle": "享受编程的乐趣，体验经典游戏",
+    "description": "一个用 React + TypeScript 构建的现代化游戏合集，支持移动端和多语言。",
+    "playNow": "立即游戏",
+    "viewCode": "查看代码",
+    "features": {
+      "title": "特色功能",
+      "responsive": "响应式设计",
+      "responsiveDesc": "完美适配桌面端和移动端",
+      "multilingual": "多语言支持",
+      "multilingualDesc": "支持中文和英文界面",
+      "modern": "现代化技术栈",
+      "modernDesc": "使用 React 18 + TypeScript 构建",
+      "opensource": "开源项目",
+      "opensourceDesc": "代码完全开源，欢迎贡献"
+    }
+  },
+  "games": {
+    "snake": {
+      "name": "贪吃蛇",
+      "description": "经典的贪吃蛇游戏，支持多种难度和移动端控制"
+    }
+  },
+  "snake": {
+    "title": "贪吃蛇游戏",
+    "score": "得分",
+    "gameOver": "游戏结束!",
+    "finalScore": "最终得分",
+    "restart": "重新开始",
+    "controls": {
+      "title": "控制方式",
+      "keyboard": "键盘：方向键或 WASD",
+      "mobile": "移动端：点击按钮或滑动屏幕",
+      "restart": "空格键重新开始游戏"
+    }
+  },
+  "difficulty": {
+    "title": "难度选择",
+    "easy": "简单",
+    "medium": "中等",
+    "hard": "困难",
+    "slow": "慢速",
+    "normal": "中速",
+    "fast": "快速"
+  }
+}

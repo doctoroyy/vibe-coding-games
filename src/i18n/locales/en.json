@@ -1,0 +1,54 @@
+{
+  "common": {
+    "home": "Home",
+    "back": "Back",
+    "language": "Language",
+    "settings": "Settings"
+  },
+  "home": {
+    "title": "Vibe Coding Games",
+    "subtitle": "Enjoy the fun of coding and experience classic games",
+    "description": "A modern game collection built with React + TypeScript, supporting mobile and multilingual.",
+    "playNow": "Play Now",
+    "viewCode": "View Code",
+    "features": {
+      "title": "Features",
+      "responsive": "Responsive Design",
+      "responsiveDesc": "Perfect for desktop and mobile",
+      "multilingual": "Multilingual Support",
+      "multilingualDesc": "Support Chinese and English interface",
+      "modern": "Modern Tech Stack",
+      "modernDesc": "Built with React 18 + TypeScript",
+      "opensource": "Open Source",
+      "opensourceDesc": "Fully open source, contributions welcome"
+    }
+  },
+  "games": {
+    "snake": {
+      "name": "Snake Game",
+      "description": "Classic snake game with multiple difficulty levels and mobile controls"
+    }
+  },
+  "snake": {
+    "title": "Snake Game",
+    "score": "Score",
+    "gameOver": "Game Over!",
+    "finalScore": "Final Score",
+    "restart": "Restart",
+    "controls": {
+      "title": "Controls",
+      "keyboard": "Keyboard: Arrow keys or WASD",
+      "mobile": "Mobile: Tap buttons or swipe screen",
+      "restart": "Space key to restart game"
+    }
+  },
+  "difficulty": {
+    "title": "Difficulty",
+    "easy": "Easy",
+    "medium": "Medium",
+    "hard": "Hard",
+    "slow": "Slow",
+    "normal": "Normal",
+    "fast": "Fast"
+  }
+}
