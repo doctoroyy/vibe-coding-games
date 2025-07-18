@@ -29,7 +29,7 @@ A modern game collection built with React + TypeScript, featuring responsive des
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/vibe-coding-games.git
+git clone https://github.com/doctoroyy/vibe-coding-games.git
 
 # Navigate to project directory
 cd vibe-coding-games
@@ -128,7 +128,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ```bash
 # 克隆仓库
-git clone https://github.com/yourusername/vibe-coding-games.git
+git clone https://github.com/doctoroyy/vibe-coding-games.git
 
 # 进入项目目录
 cd vibe-coding-games

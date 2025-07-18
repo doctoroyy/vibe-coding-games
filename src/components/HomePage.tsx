@@ -74,7 +74,7 @@ const HomePage: React.FC = () => {
                     {t('home.playNow')}
                   </Link>
                   <a 
-                    href="https://github.com/yourusername/vibe-coding-games" 
+                    href="https://github.com/doctoroyy/vibe-coding-games" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="code-btn"
@@ -104,7 +104,7 @@ const HomePage: React.FC = () => {
       <footer className="home-footer">
         <p>Made with ❤️ using React + TypeScript</p>
         <p>
-          <a href="https://github.com/yourusername/vibe-coding-games" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/doctoroyy/vibe-coding-games" target="_blank" rel="noopener noreferrer">
             GitHub
           </a>
         </p>
