@@ -27,6 +27,14 @@
     "snake": {
       "name": "贪吃蛇",
       "description": "经典的贪吃蛇游戏，支持多种难度和移动端控制"
+    },
+    "tetris": {
+      "name": "俄罗斯方块",
+      "description": "经典的俄罗斯方块游戏，挑战你的反应速度和策略思维"
+    },
+    "2048": {
+      "name": "2048",
+      "description": "数字合并益智游戏，滑动方块达到2048"
     }
   },
   "snake": {
@@ -51,4 +59,39 @@
     "normal": "中速",
     "fast": "快速"
   }
-}
+},
+
+  "tetris": {
+    "title": "俄罗斯方块",
+    "score": "得分",
+    "level": "等级",
+    "lines": "行数",
+    "gameOver": "游戏结束!",
+    "finalScore": "最终得分",
+    "restart": "重新开始",
+    "paused": "游戏暂停",
+    "pressP": "按 P 键继续",
+    "drop": "下落",
+    "controls": {
+      "title": "控制方式",
+      "move": "移动：← → ↓ 或 A S D",
+      "rotate": "旋转：↑ 或 W",
+      "drop": "快速下落：空格键",
+      "pause": "暂停：P 键"
+    }
+  },
+  "2048": {
+    "title": "2048",
+    "score": "得分",
+    "best": "最佳",
+    "gameOver": "游戏结束!",
+    "gameWon": "你赢了!",
+    "finalScore": "最终得分",
+    "restart": "重新开始",
+    "continue": "继续游戏",
+    "controls": {
+      "title": "控制方式",
+      "move": "滑动或使用方向键移动方块",
+      "goal": "合并相同数字达到 2048!"
+    }
+  }

@@ -27,6 +27,14 @@
     "snake": {
       "name": "Snake Game",
       "description": "Classic snake game with multiple difficulty levels and mobile controls"
+    },
+    "tetris": {
+      "name": "Tetris",
+      "description": "Classic Tetris game that challenges your reaction speed and strategic thinking"
+    },
+    "2048": {
+      "name": "2048",
+      "description": "Number merging puzzle game, slide tiles to reach 2048"
     }
   },
   "snake": {
@@ -51,4 +59,39 @@
     "normal": "Normal",
     "fast": "Fast"
   }
-}
+},
+ 
+ "tetris": {
+    "title": "Tetris",
+    "score": "Score",
+    "level": "Level",
+    "lines": "Lines",
+    "gameOver": "Game Over!",
+    "finalScore": "Final Score",
+    "restart": "Restart",
+    "paused": "Game Paused",
+    "pressP": "Press P to continue",
+    "drop": "Drop",
+    "controls": {
+      "title": "Controls",
+      "move": "Move: ← → ↓ or A S D",
+      "rotate": "Rotate: ↑ or W",
+      "drop": "Hard Drop: Space",
+      "pause": "Pause: P key"
+    }
+  },
+  "2048": {
+    "title": "2048",
+    "score": "Score",
+    "best": "Best",
+    "gameOver": "Game Over!",
+    "gameWon": "You Win!",
+    "finalScore": "Final Score",
+    "restart": "Restart",
+    "continue": "Continue",
+    "controls": {
+      "title": "Controls",
+      "move": "Swipe or use arrow keys to move tiles",
+      "goal": "Merge same numbers to reach 2048!"
+    }
+  }

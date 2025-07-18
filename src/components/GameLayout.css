@@ -16,6 +16,28 @@
   gap: 1rem;
 }
 
+.nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.audio-control {
+  background: none;
+  border: 2px solid #61dafb;
+  color: #61dafb;
+  font-size: 1.2rem;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.audio-control:hover {
+  background: #61dafb;
+  color: #282c34;
+}
+
 .back-btn {
   color: #61dafb;
   text-decoration: none;

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import LanguageSelector from './LanguageSelector';
+import AudioControl from './AudioControl';
 import './GameLayout.css';
 
 interface GameLayoutProps {
@@ -19,7 +20,10 @@ const GameLayout: React.FC<GameLayoutProps> = ({ children, title }) => {
           ← {t('common.back')}
         </Link>
         {title && <h1 className="game-title">{title}</h1>}
-        <LanguageSelector />
+        <div className="nav-controls">
+          <AudioControl />
+          <LanguageSelector />
+        </div>
       </nav>
       <main className="game-content">
         {children}

@@ -15,6 +15,22 @@ const HomePage: React.FC = () => {
       path: '/snake',
       icon: '🐍',
       color: '#4CAF50'
+    },
+    {
+      id: 'tetris',
+      name: t('games.tetris.name'),
+      description: t('games.tetris.description'),
+      path: '/tetris',
+      icon: '🧩',
+      color: '#FF6B6B'
+    },
+    {
+      id: '2048',
+      name: t('games.2048.name'),
+      description: t('games.2048.description'),
+      path: '/2048',
+      icon: '🔢',
+      color: '#FFA726'
     }
   ];
 
