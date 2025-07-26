@@ -58,10 +58,8 @@
     "slow": "Slow",
     "normal": "Normal",
     "fast": "Fast"
-  }
-},
- 
- "tetris": {
+  },
+  "tetris": {
     "title": "Tetris",
     "score": "Score",
     "level": "Level",
@@ -95,3 +93,4 @@
       "goal": "Merge same numbers to reach 2048!"
     }
   }
+}

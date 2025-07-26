@@ -13,7 +13,7 @@ export const useGameState = () => {
 
   const makeMove = useCallback((direction: Direction) => {
     setGameState(prevState => {
-      if (prevState.gameOver) return prevState;
+      if (prevState.gameOver || prevState.gameWon) return prevState;
 
       const { newBoard, score: moveScore, moved } = move(prevState.board, direction);
       
@@ -28,9 +28,8 @@ export const useGameState = () => {
         localStorage.setItem('2048-best-score', newBestScore.toString());
       }
 
-      const tiles = boardWithNewTile.flat().filter(tile => tile !== null);
       const gameWon = !prevState.gameWon && hasWon(boardWithNewTile);
-      const gameOver = isGameOver(boardWithNewTile);
+      const gameOver = !gameWon && isGameOver(boardWithNewTile);
 
       return {
         ...prevState,
@@ -39,7 +38,7 @@ export const useGameState = () => {
         bestScore: newBestScore,
         gameOver,
         gameWon,
-        tiles
+        tiles: boardWithNewTile.flat().filter(tile => tile !== null)
       };
     });
   }, []);

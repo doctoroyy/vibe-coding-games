@@ -90,6 +90,7 @@
   padding: 15px;
   width: 350px;
   height: 350px;
+  margin: 0 auto;
 }
 
 .board-grid {
@@ -112,16 +113,11 @@
   left: 15px;
   width: calc(100% - 30px);
   height: calc(100% - 30px);
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  gap: 15px;
+  pointer-events: none;
 }
 
 .tile {
   position: absolute;
-  width: calc(25% - 11.25px);
-  height: calc(25% - 11.25px);
   background-color: #eee4da;
   border-radius: 6px;
   display: flex;
@@ -176,7 +172,7 @@
 .tile-2048 { font-size: 1.2rem; }
 
 .game-over, .game-won {
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);

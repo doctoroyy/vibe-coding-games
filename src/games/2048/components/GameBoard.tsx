@@ -16,21 +16,33 @@ const GameBoard: React.FC<GameBoardProps> = ({ gameState }) => {
           ))
         )}
       </div>
-      
+
       <div className="tiles-container">
-        {gameState.tiles.map(tile => (
-          <div
-            key={tile.id}
-            className={`tile tile-${tile.value} ${tile.isNew ? 'tile-new' : ''} ${tile.isMerged ? 'tile-merged' : ''}`}
-            style={{
-              transform: `translate(${tile.position.x * 100}%, ${tile.position.y * 100}%)`,
-              backgroundColor: getTileColor(tile.value),
-              color: getTileTextColor(tile.value)
-            }}
-          >
-            {tile.value}
-          </div>
-        ))}
+        {gameState.board.flat().filter(tile => tile !== null).map(tile => {
+          // 计算精确位置：考虑网格间隙
+          // 每个格子宽度 = (总宽度 - 3个间隙) / 4
+          // 位置 = 格子索引 * (格子宽度 + 间隙)
+          const cellWidth = (320 - 45) / 4; // 320是board宽度，45是3个15px间隙
+          const left = tile.position.x * (cellWidth + 15);
+          const top = tile.position.y * (cellWidth + 15);
+          
+          return (
+            <div
+              key={tile.id}
+              className={`tile tile-${tile.value} ${tile.isNew ? 'tile-new' : ''} ${tile.isMerged ? 'tile-merged' : ''}`}
+              style={{
+                left: `${left}px`,
+                top: `${top}px`,
+                width: `${cellWidth}px`,
+                height: `${cellWidth}px`,
+                backgroundColor: getTileColor(tile.value),
+                color: getTileTextColor(tile.value)
+              }}
+            >
+              {tile.value}
+            </div>
+          );
+        })}
       </div>
     </div>
   );
