@@ -9,11 +9,14 @@
   align-items: center;
   justify-content: space-between;
   padding: 1rem 2rem;
-  background: rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   flex-wrap: wrap;
   gap: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .nav-controls {
@@ -23,43 +26,51 @@
 }
 
 .audio-control {
-  background: none;
-  border: 2px solid #61dafb;
-  color: #61dafb;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.8);
   font-size: 1.2rem;
   padding: 8px 12px;
-  border-radius: 8px;
+  border-radius: 12px;
   cursor: pointer;
   transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
 }
 
 .audio-control:hover {
-  background: #61dafb;
-  color: #282c34;
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-1px);
 }
 
 .back-btn {
-  color: #61dafb;
+  color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
-  font-weight: bold;
-  padding: 0.5rem 1rem;
-  border: 2px solid #61dafb;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
   border-radius: 25px;
   transition: all 0.3s ease;
-  background: transparent;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  font-size: 0.9rem;
 }
 
 .back-btn:hover {
-  background: #61dafb;
-  color: #282c34;
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .game-title {
   margin: 0;
-  color: white;
+  color: rgba(255, 255, 255, 0.9);
   font-size: clamp(1.2rem, 3vw, 1.8rem);
   text-align: center;
   flex: 1;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .game-content {
