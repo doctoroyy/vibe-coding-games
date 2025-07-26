@@ -68,12 +68,18 @@ export const createInitialGameState = (): GameState => {
 };
 
 // 移动一行的逻辑
-const moveRowLeft = (row: (Tile | null)[]): { row: (Tile | null)[], score: number } => {
+const moveRowLeft = (row: (Tile | null)[]): { row: (Tile | null)[], score: number, moved: boolean } => {
   // 过滤出非空瓦片
   const tiles = row.filter(tile => tile !== null) as Tile[];
   const newRow: (Tile | null)[] = Array(BOARD_SIZE).fill(null);
   let score = 0;
   let index = 0;
+  let moved = false;
+
+  // 如果没有瓦片，直接返回
+  if (tiles.length === 0) {
+    return { row: newRow, score: 0, moved: false };
+  }
 
   for (let i = 0; i < tiles.length; i++) {
     const currentTile = { ...tiles[i] };
@@ -86,6 +92,7 @@ const moveRowLeft = (row: (Tile | null)[]): { row: (Tile | null)[], score: numbe
       currentTile.value *= 2;
       currentTile.isMerged = true;
       score += currentTile.value;
+      moved = true; // 合并算作移动
       i++; // 跳过下一个瓦片
     }
     
@@ -93,7 +100,22 @@ const moveRowLeft = (row: (Tile | null)[]): { row: (Tile | null)[], score: numbe
     index++;
   }
 
-  return { row: newRow, score };
+  // 检查位置是否有变化
+  for (let i = 0; i < BOARD_SIZE; i++) {
+    const original = row[i];
+    const newTile = newRow[i];
+    
+    if ((original === null) !== (newTile === null)) {
+      moved = true;
+      break;
+    }
+    if (original && newTile && original.value !== newTile.value) {
+      moved = true;
+      break;
+    }
+  }
+
+  return { row: newRow, score, moved };
 };
 
 export const move = (board: (Tile | null)[][], direction: Direction): { 
@@ -105,30 +127,12 @@ export const move = (board: (Tile | null)[][], direction: Direction): {
   let totalScore = 0;
   let moved = false;
 
-  // 先检查是否有移动或合并发生
-  const checkIfMoved = (originalBoard: (Tile | null)[][], newBoard: (Tile | null)[][]): boolean => {
-    for (let y = 0; y < BOARD_SIZE; y++) {
-      for (let x = 0; x < BOARD_SIZE; x++) {
-        const original = originalBoard[y][x];
-        const newTile = newBoard[y][x];
-        
-        // 如果位置上的瓦片不同（包括值或存在性），说明有移动
-        if ((original === null) !== (newTile === null)) {
-          return true;
-        }
-        if (original && newTile && (original.value !== newTile.value || original.id !== newTile.id)) {
-          return true;
-        }
-      }
-    }
-    return false;
-  };
-
   switch (direction) {
     case 'left':
       newBoard = board.map((row, y) => {
-        const { row: newRow, score } = moveRowLeft(row);
+        const { row: newRow, score, moved: rowMoved } = moveRowLeft(row);
         totalScore += score;
+        if (rowMoved) moved = true;
         
         // 更新位置
         newRow.forEach((tile, x) => {
@@ -144,9 +148,10 @@ export const move = (board: (Tile | null)[][], direction: Direction): {
     case 'right':
       newBoard = board.map((row, y) => {
         const reversedRow = [...row].reverse();
-        const { row: movedRow, score } = moveRowLeft(reversedRow);
+        const { row: movedRow, score, moved: rowMoved } = moveRowLeft(reversedRow);
         const finalRow = movedRow.reverse();
         totalScore += score;
+        if (rowMoved) moved = true;
         
         // 更新位置
         finalRow.forEach((tile, x) => {
@@ -163,8 +168,9 @@ export const move = (board: (Tile | null)[][], direction: Direction): {
       newBoard = createEmptyBoard();
       for (let x = 0; x < BOARD_SIZE; x++) {
         const column = board.map(row => row[x]);
-        const { row: newColumn, score } = moveRowLeft(column);
+        const { row: newColumn, score, moved: colMoved } = moveRowLeft(column);
         totalScore += score;
+        if (colMoved) moved = true;
         
         newColumn.forEach((tile, y) => {
           if (tile) {
@@ -179,9 +185,10 @@ export const move = (board: (Tile | null)[][], direction: Direction): {
       newBoard = createEmptyBoard();
       for (let x = 0; x < BOARD_SIZE; x++) {
         const column = board.map(row => row[x]).reverse();
-        const { row: movedColumn, score } = moveRowLeft(column);
+        const { row: movedColumn, score, moved: colMoved } = moveRowLeft(column);
         const finalColumn = movedColumn.reverse();
         totalScore += score;
+        if (colMoved) moved = true;
         
         finalColumn.forEach((tile, y) => {
           if (tile) {
@@ -192,9 +199,6 @@ export const move = (board: (Tile | null)[][], direction: Direction): {
       }
       break;
   }
-
-  // 检查是否有移动发生
-  moved = checkIfMoved(board, newBoard);
 
   return { newBoard, score: totalScore, moved };
 };
